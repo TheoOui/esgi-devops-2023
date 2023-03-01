@@ -3,10 +3,10 @@ on:
   - push
 jobs:
   dire_bonjour:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04 # Same as GitPod
+    container:
+      image: ghcr.io/dduportal/esgi-gitpod
+      options: --user=root
     steps:
       - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
-      - run: |
-          sudo apt-get update
-          sudo apt-get install --yes cowsay
       - run: cat README.md | cowsay
